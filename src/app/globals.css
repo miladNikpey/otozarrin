@@ -4,9 +4,9 @@
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+
+  html {
+    color-scheme: dark;
   }
 }
 
@@ -19,7 +19,8 @@ body {
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  min-height: 100vh; /* تضمین می‌کند که صفحه همیشه حداقل ارتفاع داشته باشد */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -35,8 +36,13 @@ a {
   text-decoration: none;
 }
 
+/* بهتر کردن اسکرول‌بار در حالت تیره */
 @media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
   }
 }

@@ -1,10 +1,5 @@
 "use client";
-import {
-  AppShell,
-  MantineProvider,
-  Input,
-  Avatar,
-} from "@mantine/core";
+import { AppShell, MantineProvider, Input, Avatar } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import { useState } from "react";
 import { FaOpencart, FaCarAlt, FaCarCrash } from "react-icons/fa";
@@ -39,7 +34,6 @@ export default function RootLayout({
             padding="md"
             header={{ height: 60 }}
           >
-            {/* هدر */}
             <AppShell.Header
               style={{
                 backgroundColor: "#FFF",
@@ -51,26 +45,33 @@ export default function RootLayout({
                 borderRadius: "0 0 20px 20px",
                 maxWidth: "75rem",
                 height: "5rem",
+                boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.1)",
               }}
             >
               <Input
                 radius="md"
                 variant="filled"
                 placeholder="جستجو..."
-                style={{ width: "55rem" }}
+                style={{
+                  width: "100%",
+                  maxWidth: "50rem", 
+                  padding: "0.5rem 1rem", 
+                }}
               />
               <div style={{ display: "flex", alignItems: "center", gap: "0.8rem" }}>
                 <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start" }}>
                   <span style={{ fontSize: "1rem", fontWeight: "bold", color: "#333" }}>
                     نام کاربر
                   </span>
-                  <span style={{ fontSize: "0.9rem", color: "#666" }}>مدیر سایت</span>
+                  <span style={{ fontSize: "0.9rem", color: "#666" }}>
+                    مدیر سایت
+                  </span>
                 </div>
-                <Avatar variant="light" radius="xl" size="lg" />
+                <Avatar variant="light" radius="xl" size="lg" color="orange" />
               </div>
             </AppShell.Header>
 
-            {/* نوار کناری */}
+           
             <AppShell.Navbar
               p="md"
               style={{
@@ -80,6 +81,7 @@ export default function RootLayout({
                 position: "fixed",
                 width: "250px",
                 padding: "1rem",
+                borderRadius: "30px 0 0 30px",
               }}
             >
               <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
@@ -110,7 +112,6 @@ export default function RootLayout({
               </ul>
             </AppShell.Navbar>
 
-            {/* محتوای اصلی */}
             <AppShell.Main>{children}</AppShell.Main>
           </AppShell>
         </MantineProvider>
