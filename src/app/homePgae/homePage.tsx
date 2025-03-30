@@ -1,6 +1,5 @@
-// homePage.tsx
 import React from 'react';
-import "./globals.css";  // اطمینان حاصل کنید که این خط در `RootLayout` شما باشد
+import "./globals.css";
 
 
 const HomePage = () => {

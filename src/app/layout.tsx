@@ -6,6 +6,7 @@ import { FaOpencart, FaCarAlt, FaCarCrash } from "react-icons/fa";
 import "./globals.css";
 import { GiCarWheel } from "react-icons/gi";
 import { FaCarOn } from "react-icons/fa6";
+import { RiHomeSmile2Fill } from "react-icons/ri";
 
 export default function RootLayout({
   children,
@@ -14,11 +15,29 @@ export default function RootLayout({
   const [selectedItem, setSelectedItem] = useState<string | null>(null);
 
   const menuItems = [
+    { id: "home", label: "خانه", icon: <RiHomeSmile2Fill size={25}/> },
     { id: "brand", label: "برند خودرو", icon: <FaCarAlt size={25} /> },
     { id: "consumables", label: "لوازم مصرفی", icon: <GiCarWheel size={25} /> },
     { id: "accessories", label: "اکسسوری خودرو", icon: <FaCarOn size={25} /> },
     { id: "bodyParts", label: "قطعات بدنه", icon: <FaCarCrash size={25} /> },
   ];
+
+  const renderContent = () => {
+    switch (selectedItem) {
+      case "home":
+        return <div>محتوای صفحه خانه</div>;
+      case "brand":
+        return <div>محتوای صفحه برند خودرو</div>;
+      case "consumables":
+        return <div>محتوای صفحه لوازم مصرفی</div>;
+      case "accessories":
+        return <div>محتوای صفحه اکسسوری خودرو</div>;
+      case "bodyParts":
+        return <div>محتوای صفحه قطعات بدنه</div>;
+      default:
+        return <div>لطفاً یک گزینه را از منو انتخاب کنید.</div>;
+    }
+  };
 
   return (
     <html lang="fa" dir="rtl">
@@ -71,7 +90,6 @@ export default function RootLayout({
               </div>
             </AppShell.Header>
 
-           
             <AppShell.Navbar
               p="md"
               style={{
@@ -112,7 +130,11 @@ export default function RootLayout({
               </ul>
             </AppShell.Navbar>
 
-            <AppShell.Main>{children}</AppShell.Main>
+            <AppShell.Main>
+              <div>
+                {renderContent()}
+              </div>
+            </AppShell.Main>
           </AppShell>
         </MantineProvider>
       </body>
